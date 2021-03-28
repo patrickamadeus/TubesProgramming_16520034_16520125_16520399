@@ -58,7 +58,7 @@ int main(){
 			cout << "maju/mundur/kiri/kanan : ";
 			cin >> comm;
 			transform(comm.begin(), comm.end(), comm.begin(), ::tolower);
-			if ((comm == "mundur" && pos.y == 0) || (comm == "kiri" && pos.x == 0)){
+			if ((comm == "mundur" && (pos.y == 0 || field[15-pos.y+1][pos.x]!=0)) || (comm == "kiri" && (pos.x == 0 ||field[15-pos.y][pos.x-1]!=0)) || (comm=="maju" && (pos.y==15 ||field[15-pos.y-1][pos.x]!=0)) || (comm=="kanan" && (pos.x==15 || field[15-pos.y][pos.x+1]!=0) )){
 				invalid = true;
 				cout << "Invalid\n";
 			}
@@ -80,13 +80,36 @@ int main(){
 		cout << pos.x << "," << pos.y << endl;
 		field[15-pos.y][pos.x]=1;
 		
+		
+		
 		cout<<"POSISI SETELAH PERGERAKAN (robot anda adalah angka 1)"<<endl;
 		for(int i=0; i<16 ;i++){
 			for(int j=0;j<16 ;j++){
 				cout<< field[i][j]<<" ";
 			}
 			cout<<endl;}
+			
+		//bagian cockroaches detector --> 4 kiri 4 kanan , 4 atas 4 bawah
+		//atas
+		int atas=15-pos.y-1 ,distAtas = 1;
+		for (int i=0;i<4;i++){
+			if (atas>=0){
+				if (field[atas][pos.x]!=0){
+					cout<<"Terdeteksi Kecoak pada jarak vertikal ke atas "<<distAtas <<" satuan dari robot!"<<endl;
+					distAtas=0;
+					break;
+				}
+				distAtas+=1;
+				atas-=1;}
+			else{
+				distAtas=6;
+				break;}
+			}
+		if (distAtas>4){
+			cout<<"Tidak terdeteksi Kecoak di jarak 4 vertikal ke atas dari posisi robot"<< endl;;
+		}
 	}
+	
 	while (alive);
 	
 	
