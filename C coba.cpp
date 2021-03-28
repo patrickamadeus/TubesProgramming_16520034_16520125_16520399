@@ -2,6 +2,7 @@
 #include<vector>
 #include<stdlib.h> 
 #include<time.h>
+#include<algorithm>
 using namespace std;
 
 typedef struct{
@@ -49,30 +50,31 @@ int main(){
 			cout<<endl;}
 	
 	
-	//program utama
+	
 	do{
 		bool invalid = true;
 		do{
 			invalid = false;
-			cout << "Maju/Mundur/Kiri/Kanan: ";
+			cout << "maju/mundur/kiri/kanan : ";
 			cin >> comm;
-			if ((comm == "Mundur" && pos.y == 0) || (comm == "Kiri" && pos.x == 0)){
+			transform(comm.begin(), comm.end(), comm.begin(), ::tolower);
+			if ((comm == "mundur" && pos.y == 0) || (comm == "kiri" && pos.x == 0)){
 				invalid = true;
 				cout << "Invalid\n";
 			}
 		}
 		while (invalid);
 		field[15-pos.y][pos.x]=0;
-		if (comm == "Maju"){
+		if (comm == "maju"){
 			pos.y += 1;
 		}
-		else if (comm == "Mundur"){
+		else if (comm == "mundur"){
 			pos.y -= 1;
 		}
-		else if (comm == "Kiri"){
+		else if (comm == "kiri"){
 			pos.x -= 1;
 		}
-		else if (comm == "Kanan"){
+		else if (comm == "kanan"){
 			pos.x += 1;
 		}
 		cout << pos.x << "," << pos.y << endl;
