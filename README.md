@@ -15,3 +15,5 @@ Berisi source code, cara menjalankan program , dan dokumentasi saat menjalankan 
 10. Setiap naik stage, HP kecoa akan bertambah 100
 11. Program akan berhenti saat user memberi perintah quit atau robot mati
 12. Pada akhir game akan dimunculkan total kecoa yang telah dibunuh
+
+Nama Anggota Kelompok  : Grace Claudia (16520125) , Patrick Amadeus Irawan (16520034) , Hansel Valentino Tanoto (16520399)
