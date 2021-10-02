@@ -1,7 +1,7 @@
-# TubesURO
+# Tugas Besar Robotika :robot:
 Berisi source code, cara menjalankan program , dan dokumentasi saat menjalankan program robot yang mempertahankan kota Ganesha dari serang kecoak raksasa
 
-</> HOW TO PLAY  </>
+## ❔ HOW TO PLAY ❔
 
 1. Game ini terdiri dari beberapa stage
 2. Saat pertama kali game dijalankan, game akan menampilkan peta awal dan pendeteksi kecoa (HP robot awal = 1000, dan HP kecoa awal = 500)
